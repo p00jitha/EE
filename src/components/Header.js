@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux'
+import { authActions } from "./store";
 const Header = () => {
+  const dispath=useDispatch();
   const isLoggedIn = useSelector((state)=>state.isLoggedIn);
   console.log(isLoggedIn)
   return (
@@ -19,7 +22,7 @@ const Header = () => {
       <div className="col-md-3 text-end">
       {!isLoggedIn && <><Link to='/login'><button type="button" className="btn btn-outline-primary me-2">Login</button></Link>
       <Link to='/signup'><button type="button" className="btn btn-primary">Signup</button></Link> </> }
-     {isLoggedIn && <Link to='/logout'><button type="button" className="btn btn-outline-primary me-2">Logout</button></Link> }
+     {isLoggedIn && <Link to='/login'><button type="button" className="btn btn-outline-primary me-2" onClick={()=>dispath(authActions.logout())}>Logout</button></Link> }
       </div>
     </header>
   </div>
