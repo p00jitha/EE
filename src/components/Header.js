@@ -16,7 +16,8 @@ const Header = () => {
 
       <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
        {isLoggedIn &&  <><li><Link to='/blogs' className="nav-link px-2 link-secondary">ALL BLOGS</Link></li> 
-        <li><Link to='/myBlogs' className="nav-link px-2 link-dark">MY BLOGS</Link></li></> }
+        <li><Link to='/myBlogs' className="nav-link px-2 link-dark">MY BLOGS</Link></li>
+        <li><Link to='/blogs/add' className="nav-link px-2 link-dark">ADD BLOGS</Link></li></> }
       </ul>
 
       <div className="col-md-3 text-end">

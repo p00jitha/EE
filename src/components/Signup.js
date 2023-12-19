@@ -1,23 +1,45 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 function Signup() {
   const [email,setEmail] = useState('')
   const [username,setUsername] = useState('')
   const [password,setPassword] = useState('')
-{/*const [inputs,setInputs] = useState({username:'',email:'',password:''})*/}
+  const navigate = useNavigate(); 
+{/*const [inputs,setInputs] = useState({username:'',email:'',password:''})
 
   const handleSubmit=async (e)=>{
     e.preventDefault()
-    await axios.post('http://localhost:5000/signup',{email:email,username:username,password:password})
+    await axios.post('http://localhost:5000/signup',{email:email,username:username,password:password,blogs:[]})
     .then(()=>{
       alert('registration successful');
       setEmail('')
       setUsername('')
       setPassword('')
+      navigate("/login")
     }).catch((err)=>{
       console.log(err)
     })
-  }
+  }*/}
+
+  const sendRequest = async () => {
+    const res = await axios
+      .post('http://localhost:5000/signup', {
+        email:email,
+        username:username,
+        password:password,
+        blogs:[]
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+      sendRequest()
+        .then(() => navigate("/login"));
+  };
+
+
   return (
     <>
       <div className='container' >
