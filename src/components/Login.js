@@ -44,10 +44,10 @@ const Login = () => {
             <label className="form-label" for="form2Example2">Password</label>
             <input type="password" id="form2Example2" className="form-control" placeholder='enter password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <button type="submit" className="btn btn-danger btn-block mb-4">Register</button>
+          <button type="submit" className="btn btn-danger btn-block mb-4">Login</button>
           <div className="row mb-4">
             <div className="row">
-              <p>Already Registered?<a href="/login" style={{ color: '#C70039' }}>Login</a></p>
+              <p>Already Registered?<a href="/signup" style={{ color: '#C70039' }}>Signup</a></p>
             </div>
           </div>
         </form>
