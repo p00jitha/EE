@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const Addblog = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Addblog = () => {
   };
   return (
     <div>
+      <Header/>
       <form onSubmit={handleSubmit}>
         <h1>Write Your Travel Experience</h1>
         <div className="form-outline mb-4"></div>

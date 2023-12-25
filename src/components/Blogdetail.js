@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import Header from './Header';
 const Blogdetail = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
@@ -48,6 +49,7 @@ const Blogdetail = () => {
   }
   return (
     <div>
+      <Header/>
       {inputs && 
       <form onSubmit={handleSubmit}>
         <h1>Write Your Travel Experience</h1>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/Header'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Login from './components/Login';
@@ -10,6 +9,7 @@ import Blogdetail from './components/Blogdetail';
 import Addblog from './components/Addblog';
 import { useSelector } from 'react-redux';
 import Home from './components/Home'
+import Sample from './components/Sample'
 
 function App() {
   const isLoggedIn = useSelector((state)=>state.isLoggedIn);
@@ -17,12 +17,10 @@ function App() {
   return (
     <BrowserRouter>
     <div className='App'>
-     <header>
-        <Header/>
-     </header>
      <main>
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/sample" element={<Sample />} />
       <Route path="/login" element={<Login />} />
       <Route path='/signup' element={<Signup/>} />
      <Route path='/blogs' element={<Blogs/>} /> 

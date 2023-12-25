@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Blog from "./Blog";
+import Header from "./Header";
+import './Home.css';
 const Blogs = () => {
   const [blogs, setBlogs] = useState();
   const sendRequest = async () => {
@@ -15,7 +17,10 @@ const Blogs = () => {
   }, []);
   console.log(blogs);
   return (
-    <div>
+    <div className="styling">
+      <Header/>
+      <div className='container'>
+    <div className='row'>
        {blogs &&
         blogs.map((blog, index) => (
           <Blog
@@ -25,8 +30,11 @@ const Blogs = () => {
             description={blog.description}
             imageURL={blog.image}
             userName={blog.user.username}
+          
           />
         ))}
+        </div>
+        </div>
     </div>
   )
 }

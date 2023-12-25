@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Blog from "./Blog";
+import Header from "./Header";
 const UserBlogs = () => {
   const [blogs, setBlogs] = useState("");
   const id = localStorage.getItem("userId");
@@ -17,6 +18,7 @@ const UserBlogs = () => {
   console.log(blogs);
   return (
     <div>
+      <Header/>
       {blogs &&
         blogs.map((blog, index) => (
           <Blog

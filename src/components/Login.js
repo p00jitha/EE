@@ -3,7 +3,23 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { authActions } from "./store";
 import { useNavigate } from "react-router-dom";
+import Header from './Header';
 const Login = () => {
+  const divStyle={
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    minHeight:'90vh',
+    color:'blue'
+  }
+  const loginStyle={
+    width:'450px',
+    height:'450px',
+    display:'flex',
+    flexDirection:'column',
+    padding:'30px 25px 30px 25px',
+    boxShadow:'5px 5px 5px 5px blue'
+  }
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispath = useDispatch();
@@ -32,6 +48,9 @@ const Login = () => {
   return (
     <>
       <div className='container' >
+        <Header/>
+        <div className='container' style={divStyle}>
+        <div className='box' style={loginStyle}>
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
           <div className="form-outline mb-4"></div>
@@ -44,13 +63,15 @@ const Login = () => {
             <label className="form-label" for="form2Example2">Password</label>
             <input type="password" id="form2Example2" className="form-control" placeholder='enter password' name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <button type="submit" className="btn btn-danger btn-block mb-4">Login</button>
+          <button type="submit" className="btn btn-primary btn-block mb-4">Login</button>
           <div className="row mb-4">
             <div className="row">
-              <p>Already Registered?<a href="/signup" style={{ color: '#C70039' }}>Signup</a></p>
+              <p>Already Registered?<a href="/signup" style={{ color: 'blue' }}>Signup</a></p>
             </div>
           </div>
         </form>
+        </div>
+        </div>
       </div>
     </>
   )
